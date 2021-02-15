@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all.order('created_at DESC')
   end
 
   def new
@@ -12,6 +13,9 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
 
 
   private
